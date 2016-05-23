@@ -4,5 +4,6 @@ export default function() {
       email: "jd@snapzio.com",
       password: "password123"
     });
+    console.log('Created admin! username: jd@snapzio.com / password: password123');
   }
 }

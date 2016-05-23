@@ -1,4 +1,5 @@
 import React from 'react';
+import Login from '../containers/login.js';
 
 const Authwrapper = ({loggedIn, loggingIn, children}) => { 
    if (loggedIn) {
@@ -13,7 +14,7 @@ const Authwrapper = ({loggedIn, loggingIn, children}) => {
      );
    }
   return (
-    <h1>Please log in!</h1>
+    <Login />
   );
 };
 
