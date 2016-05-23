@@ -12,7 +12,7 @@ export default function() {
         },
         {
           name: 'Sadboys Large',
-          prince: 15,
+          price: 15,
           qty: 1,
           category: 'Fashion'
         }

@@ -5,7 +5,7 @@ class OrdersTable extends React.Component {
   render() {
   const rows = this.props.orders.map((order) => {
     console.log(order);
-    return <OrdersRow key={order._id} order={order} />;
+    return <OrdersRow key={order._id} order={order} update={this.props.update}/>;
   });
     return (
       <div>

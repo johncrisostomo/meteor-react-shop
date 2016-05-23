@@ -6,13 +6,14 @@ export const composer = ({context}, onData) => {
   const {Meteor, Collections} = context();
 
   if (Meteor.subscribe('orders').ready()) {
-    const orders = Collections.Orders.find().fetch(); 
+    const orders = Collections.Orders.find().fetch();
     onData(null, {orders});
   }
 
 };
 
 export const depsMapper = (context, actions) => ({
+  update: actions.orderslist.update,
   context: () => context
 });
 

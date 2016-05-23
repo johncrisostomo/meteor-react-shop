@@ -4,15 +4,33 @@ class OrdersRow extends React.Component {
   constructor(props) {
     super(props);
     this.state = { isUpdating: false };
+    this.orderId = this.props.order._id;
+  }
+
+  handleSave(e) {
+    e.preventDefault();
+    this.props.update(this.orderId);
+
+    this.setState({isUpdating: false});
+  }
+
+  handleUpdate(e) {
+    e.preventDefault();
+    this.setState({isUpdating: true});
+  }
+
+  handleCancel(e) {
+    e.preventDefault();
+    this.setState({isUpdating: false});
   }
 
   getId() {
-    const url = '/orders/' + this.props.order._id;
-    return <td><a href={url}>{this.props.order._id}</a></td>;
+    const url = '/orders/' + this.orderId;
+    return <td><a href={url}>{this.orderId}</a></td>;
   }
 
   getStatus() {
-    const status = this.props.status ? 'Shipped' : 'Pending';
+    const status = this.props.order.status ? 'Shipped' : 'Pending';
     if (this.state.isUpdating) {
       return (
         <td>
@@ -28,16 +46,19 @@ class OrdersRow extends React.Component {
   }
 
   getFirstButton() {
+    const status = this.props.order.status ? 'Shipped' : 'Pending';
     if (this.state.isUpdating) {
-      return <td><a href="#">Save</a></td>;
+      return <td><a href="#" onClick={this.handleSave.bind(this)}>Save</a></td>;
     }
-
-    return <td><a href="#">Update</a></td>;
+    if (status === 'Shipped') {
+      return <td><i>Transaction complete!</i></td>
+    }
+    return <td><a href="#" onClick={this.handleUpdate.bind(this)}>Update</a></td>;
   }
-  
+
   getSecondButton() {
     if (this.state.isUpdating) {
-      return <td><a href="#">Cancel</a></td>; 
+      return <td><a href="#" onClick={this.handleCancel.bind(this)}>Cancel</a></td>;
     }
 
     return <td></td>;

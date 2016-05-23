@@ -6,19 +6,35 @@ class OrdersView extends React.Component {
       return <ProductMedia key={product.name + product.price} product={product} />;
     });
     return (
-    <div>
-      <div className="panel panel-default clearfix">
-        <div className="panel-heading">
-          <h3 className="panel-title"> Order #{this.props.post._id} </h3>
-        </div>
-        <div className="panel-body">
-          {products} 
-        </div>
-        <div className="panel-footer">
-          <div className="pull-right">
-            Total : {this.props.post.total}
+    <div className="row">
+      <div className="col-md-6 col-md-offset-3">
+        <div className="panel panel-default">
+          <div className="panel-heading">
+            <h3 className="panel-title"> Order #{this.props.post._id} </h3>
+          </div>
+          <div className="panel-body">
+            {products}
+          </div>
+          <div className="row">
+            <div className="col-md-3 col-md-offset-6">
+              <h4>Total :</h4>
+            </div>
+            <div className="col-md-3">
+              <h4>{this.props.post.total}</h4>
+            </div>
           </div>
         </div>
+        <div className="panel panel-default">
+          <div className="panel-heading">
+            <h3 className="panel-title">Sold to: </h3>
+          </div>
+          <div className="panel-body">
+            <h4>{this.props.post.name}</h4>
+            <h4>{this.props.post.email}</h4>
+            <h4>{this.props.post.address}</h4>
+          </div>
+        </div>
+        <a className="btn btn-primary pull-right" href="/">Back to Orders List</a>
       </div>
     </div>
     );
@@ -26,15 +42,19 @@ class OrdersView extends React.Component {
 }
 
 const ProductMedia = ({product}) => (
-  <div class="media">
-    <div class="media-left">
-        <a href="#">
-          <img class="media-object" src="http://i.stack.imgur.com/ruR4z.png" alt="..." />
-        </a>
+  <div className="row">
+    <div className="col-md-3">
+      <img src="http://i.stack.imgur.com/ruR4z.png" />
     </div>
-    <div class="media-body">
-      <h4 class="media-heading">{product.name}</h4>
+    <div className="col-md-3">
+      <h4>{product.name}</h4>
       {product.category}
+    </div>
+    <div className="col-md-3">
+      <h4><i>x {product.qty}</i></h4>
+    </div>
+    <div className="col-md-3">
+      <h4>{product.price * product.qty}</h4>
     </div>
   </div>
 );
