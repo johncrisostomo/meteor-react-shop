@@ -1,15 +1,13 @@
 import {useDeps, composeAll, composeWithTracker, compose} from 'mantra-core';
 
-import OrdersList from '../components/orders_list.jsx';
+import OrdersView from '../components/orders_view.jsx';
 
-export const composer = ({context}, onData) => {
+export const composer = ({context, orderId}, onData) => {
   const {Meteor, Collections} = context();
-
-  if (Meteor.subscribe('orders').ready()) {
-    const orders = Collections.Orders.find().fetch(); 
-    onData(null, {orders});
+  if(Meteor.subscribe('orders', orderId)) {
+    const post = Collections.Orders.findOne();
+    onData(null, {post});
   }
-
 };
 
 export const depsMapper = (context, actions) => ({
@@ -19,4 +17,4 @@ export const depsMapper = (context, actions) => ({
 export default composeAll(
   composeWithTracker(composer),
   useDeps(depsMapper)
-)(OrdersList);
+)(OrdersView);
