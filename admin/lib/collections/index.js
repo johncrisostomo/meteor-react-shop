@@ -1,3 +1,6 @@
+import Orders from './orders';
+
 export {
-  undefined
+  undefined,
+  Orders
 };
