@@ -23,3 +23,6 @@ kadira:flow-router
 accounts-password
 twbs:bootstrap
 email
+cfs:standard-packages
+cfs:gridfs
+msavin:mongol

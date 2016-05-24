@@ -5,7 +5,6 @@ class OrdersRow extends React.Component {
     super(props);
     this.state = { isUpdating: false };
     this.orderId = this.props.order._id;
-    this.status = this.props.order.shipped ? 'Shipped' : 'Pending';
   }
 
   handleSave(e) {
@@ -31,6 +30,7 @@ class OrdersRow extends React.Component {
   }
 
   getStatus() {
+    const status = this.props.order.shipped ? 'Shipped' : 'Pending';
     if (this.state.isUpdating) {
       return (
         <td>
@@ -42,10 +42,11 @@ class OrdersRow extends React.Component {
       );
     }
 
-    return <td>{this.status}</td>;
+    return <td>{status}</td>;
   }
 
   getFirstButton() {
+    const status = this.props.order.shipped ? 'Shipped' : 'Pending';
     if (this.state.isUpdating) {
       return <td><a href="#" onClick={this.handleSave.bind(this)}>Save</a></td>;
     }

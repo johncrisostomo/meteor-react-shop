@@ -36,7 +36,7 @@ export default function() {
       total: 1000,
       name: 'John Crisostomo',
       address: 'Snapzio Office',
-      email: 'erick@snapzio.com',
+      email: 'jd@snapzio.com',
       shipped: false
     });
     console.log('Inserted test order for John');
