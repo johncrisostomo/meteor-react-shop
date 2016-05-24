@@ -50,7 +50,7 @@ class OrdersRow extends React.Component {
     if (this.state.isUpdating) {
       return <td><a href="#" onClick={this.handleSave.bind(this)}>Save</a></td>;
     }
-    if (this.status === 'Shipped') {
+    if (status === 'Shipped') {
       return <td><i>Transaction complete!</i></td>
     }
     return <td><a href="#" onClick={this.handleUpdate.bind(this)}>Update</a></td>;
