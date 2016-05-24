@@ -2,7 +2,8 @@ import React from 'react';
 
 class OrdersView extends React.Component {
   render() {
-    const products = this.props.post.products.map((product, index) => {
+    const order = this.props.order[0];
+    const products = order.products.map((product, index) => {
       return <ProductMedia key={product.name + product.price} product={product} />;
     });
     return (
@@ -10,7 +11,7 @@ class OrdersView extends React.Component {
       <div className="col-md-6 col-md-offset-3">
         <div className="panel panel-default">
           <div className="panel-heading">
-            <h3 className="panel-title"> Order #{this.props.post._id} </h3>
+            <h3 className="panel-title"> Order #{order._id} </h3>
           </div>
           <div className="panel-body">
             {products}
@@ -20,7 +21,7 @@ class OrdersView extends React.Component {
               <h4>Total :</h4>
             </div>
             <div className="col-md-3">
-              <h4>{this.props.post.total}</h4>
+              <h4>{order.total}</h4>
             </div>
           </div>
         </div>
@@ -29,9 +30,9 @@ class OrdersView extends React.Component {
             <h3 className="panel-title">Sold to: </h3>
           </div>
           <div className="panel-body">
-            <h4>{this.props.post.name}</h4>
-            <h4>{this.props.post.email}</h4>
-            <h4>{this.props.post.address}</h4>
+            <h4>{order.name}</h4>
+            <h4>{order.email}</h4>
+            <h4>{order.address}</h4>
           </div>
         </div>
         <a className="btn btn-primary pull-right" href="/">Back to Orders List</a>

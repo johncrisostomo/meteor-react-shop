@@ -6,8 +6,7 @@ export default function () {
   Meteor.publish('orders', function () {
     return Orders.find();
   });
-
-  Meteor.publish('orders', function(orderId) {
+  Meteor.publish('order', function(orderId) {
     return Orders.find({_id: orderId});
   });
 }

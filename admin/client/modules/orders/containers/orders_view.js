@@ -4,9 +4,11 @@ import OrdersView from '../components/orders_view.jsx';
 
 export const composer = ({context, orderId}, onData) => {
   const {Meteor, Collections} = context();
-  if(Meteor.subscribe('orders', orderId)) {
-    const post = Collections.Orders.findOne();
-    onData(null, {post});
+  if(Meteor.subscribe('order', orderId).ready()) {
+    console.log(orderId);
+    var order= Collections.Orders.find({_id:orderId}).fetch();
+    
+    onData(null, {order});
   }
 };
 

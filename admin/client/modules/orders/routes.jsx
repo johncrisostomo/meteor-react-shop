@@ -11,7 +11,7 @@ export default function (injectDeps, {FlowRouter}) {
     name: 'ordersView',
     action(params) {
       mount(MainLayoutCtx, {
-        content: () => (<OrdersView orderId={params._id} />)
+        content: () => (<OrdersView orderId={params.id} />)
       });
     }
   });
