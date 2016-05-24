@@ -8,6 +8,9 @@ class ProductsAdd extends React.Component {
     const productCategory = this.refs.productCategory.value;
     const productPrice = Number(this.refs.productPrice.value);
     const imageFile = $('#productImage').get(0).files[0];
+
+    this.props.productsAdd(productName, productDescription, productCategory,
+      productPrice, imageFile);
   }
   render() {
     const categoryNames = this.props.categories.map((category) => {

@@ -4,7 +4,7 @@ import ProductsList from '../components/products_list.jsx';
 
 export const composer = ({context}, onData) => {
   const {Meteor, Collections} = context();
-  if (Meteor.subscribe('categories').ready() && Meteor.subscribe('products').ready()) {
+  if (Meteor.subscribe('categoryNames').ready() && Meteor.subscribe('products').ready()) {
     const categories = Collections.Categories.find().fetch();
     const products = Collections.Products.find().fetch();
     onData(null, {categories, products});
@@ -12,6 +12,8 @@ export const composer = ({context}, onData) => {
 };
 
 export const depsMapper = (context, actions) => ({
+  productsAdd: actions.products.productsAdd,
+  productsDelete: actions.products.productsDelete,
   context: () => context
 });
 
