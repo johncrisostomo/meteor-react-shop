@@ -11,7 +11,7 @@ class OrdersRow extends React.Component {
   handleSave(e) {
     e.preventDefault();
     this.props.update(this.orderId);
-
+    this.status = 'Shipped';
     this.setState({isUpdating: false});
   }
 
