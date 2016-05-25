@@ -11,6 +11,7 @@ class ProductsAdd extends React.Component {
 
     this.props.productsAdd(productName, productDescription, productCategory,
       productPrice, imageFile);
+    $('#addModal').modal('hide');
   }
   render() {
     const categoryNames = this.props.categories.map((category) => {
