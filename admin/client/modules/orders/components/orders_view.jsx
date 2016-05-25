@@ -21,7 +21,7 @@ class OrdersView extends React.Component {
               <h4>Total :</h4>
             </div>
             <div className="col-md-3">
-              <h4>{order.total}</h4>
+              <h4>Php {order.total.toFixed(2)}</h4>
             </div>
           </div>
         </div>

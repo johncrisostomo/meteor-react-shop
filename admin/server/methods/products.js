@@ -20,7 +20,7 @@ export default function() {
           category: productCategory,
           price: productPrice,
           image_id: image_id,
-          image_path: image_path,
+          image_url: image_path,
         });
     }
   });

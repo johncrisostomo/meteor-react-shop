@@ -2,7 +2,7 @@ export default {
   productsAdd({Meteor, Collections}, productName, productDescription, productCategory,
     productPrice, imageFile) {
       if (imageFile) {
-        const fsFile = new FS.File(file);
+        const fsFile = new FS.File(imageFile);
         Collections.Images.insert(fsFile, function(err, res) {
           if (!err) {
             var image_path = Meteor.absoluteUrl() + 'cfs/files/Images/' + res._id;

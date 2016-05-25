@@ -28,7 +28,7 @@ class ProductsAdd extends React.Component {
               <h4 className="modal-title" id="addModalLabel">Add Product</h4>
             </div>
             <div className="modal-body clearfix">
-              <form onSubmit={this.submitHandler}>
+              <form onSubmit={this.submitHandler.bind(this)}>
                 <div className="form-group">
                   <label>Product Name:</label>
                   <input type="text" ref="productName" className="form-control"

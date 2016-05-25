@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductsAdd from './products_add.jsx';
+import ProductsTable from './products_table.jsx';
 
 class ProductsList extends React.Component {
   render() {
@@ -12,6 +13,12 @@ class ProductsList extends React.Component {
               productsAdd={this.props.productsAdd}
             />
          </div>
+          <ProductsTable 
+            products={this.props.products}
+            categories={this.props.categories}
+            productsUpdate={this.props.productsUpdate}
+            productsDelete={this.props.productsUpdate}
+          /> 
       </div>
     );
   }
