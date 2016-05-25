@@ -18,6 +18,7 @@ class ProductsRow extends React.Component {
 
   handleDelete(e) {
     e.preventDefault();
+    this.props.productsDelete(this.props.product._id, this.props.product.image_id);
   }
 
   handleCancel(e) {

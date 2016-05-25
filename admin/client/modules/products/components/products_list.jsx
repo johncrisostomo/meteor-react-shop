@@ -17,7 +17,7 @@ class ProductsList extends React.Component {
             products={this.props.products}
             categories={this.props.categories}
             productsUpdate={this.props.productsUpdate}
-            productsDelete={this.props.productsUpdate}
+            productsDelete={this.props.productsDelete}
           /> 
       </div>
     );

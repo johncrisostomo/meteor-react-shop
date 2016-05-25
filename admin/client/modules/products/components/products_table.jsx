@@ -9,6 +9,8 @@ class ProductsTable extends React.Component {
           key={product._id} 
           product={product}
           categories={this.props.categories}
+          productsUpdate={this.props.productsUpdate}
+          productsDelete={this.props.productsDelete}
         />
       );
     });

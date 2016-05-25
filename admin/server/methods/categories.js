@@ -1,4 +1,5 @@
 import {Categories} from '/lib/collections';
+import {Products} from '/lib/collections';
 import {Images} from '/lib/collections';
 import {Meteor} from 'meteor/meteor';
 import {check} from 'meteor/check';
@@ -20,11 +21,12 @@ export default function () {
       check(name, String);
       check(image_url, String);
       check(imageId, String);
+      check(oldImageId, String);
 
-      if (oldImageId) {
-        check(oldImageId, String);
-        Images.remove(oldImageId);
-      }
+      Images.remove(oldImageId);
+
+      // old cat name to  handle products that have the old category
+      const oldCategoryName = Categories.findOne({_id: categoryId}).name;
 
       Categories.update({_id: categoryId}, 
         { 
@@ -35,6 +37,10 @@ export default function () {
               image_url: image_url
             }
         });
+
+      Products.update({category: oldCategoryName}, 
+                      { $set: { category: name}}, 
+                      {multi: true});
     }
   });
 
@@ -45,6 +51,13 @@ export default function () {
         check(imageId, String);
         Images.remove(imageId);
       }
+
+      const oldCategoryName = Categories.findOne({_id: categoryId}).name;
+
+      Products.update({category: oldCategoryName}, 
+                      { $set: { category: 'Uncategorized'}}, 
+                      {multi: true});
+
       Categories.remove(categoryId);
     }
   });

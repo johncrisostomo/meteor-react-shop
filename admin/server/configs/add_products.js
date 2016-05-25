@@ -7,7 +7,8 @@ export default function() {
        description: 'A slim ultraportable from Apple',
        price: 1000,
        image_url: 'http://www.garethjmsaunders.co.uk/blueprint/placeholders/gif/extras/icons/64x64.gif',
-       category: 'Electronics'
+       category: 'Electronics',
+       image_id: '1234hjkhdaf798',
      });
      console.log('Inserted Macbook Air');
 
@@ -17,7 +18,8 @@ export default function() {
        description: 'An expensive phone from Apple',
        price: 30,
        image_url: 'http://www.garethjmsaunders.co.uk/blueprint/placeholders/gif/extras/icons/64x64.gif',
-       category: 'Electronics'
+       category: 'Electronics',
+       image_id: 'poiasbfjhlwre123',
      });
      console.log('Inserted iPhone!');
 
@@ -27,7 +29,8 @@ export default function() {
        description: 'A Large Sadboys T-shirt',
        price: 15,
        image_url: 'http://www.garethjmsaunders.co.uk/blueprint/placeholders/gif/extras/icons/64x64.gif',
-       category: 'Fashion'
+       category: 'Fashion',
+       image_id: 'nbmb41ioui4321',
      });
      console.log('Inserted T-shirt!');
    }
