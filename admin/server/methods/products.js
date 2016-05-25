@@ -26,6 +26,34 @@ export default function() {
   });
 
   Meteor.methods({
+    'productsUpdate'(productId, productName, productDescription, productCategory,
+    productPrice, oldImageId, imageId, image_url) {
+      check(productId, String);
+      check(productName, String);
+      check(productDescription, String);
+      check(productCategory, String);
+      check(productPrice, Number);
+      check(oldImageId, String);
+      check(image_url, String);
+
+      Images.remove(oldImageId);
+
+      Products.update({_id: productId},
+        {
+          $set:
+            {
+              name: productName,
+              description: productDescription,
+              category: productCategory,
+              price: productPrice,
+              image_id: imageId,
+              image_url: image_url
+            }
+        });
+    }
+  });
+
+  Meteor.methods({
     'productsDelete'(productId, imageId) {
       check(productId, String);
       check(imageId, String);

@@ -8,6 +8,14 @@ class ProductsRow extends React.Component {
 
   handleSave(e) {
     e.preventDefault();
+    const name = this.refs.productName.value;
+    const description = this.refs.productDescription.value;
+    const category = this.refs.productCategory.value; 
+    const price = Number(this.refs.productPrice.value);
+    const image = $('#updateImage').get(0).files[0];
+
+    this.props.productsUpdate(this.props.product._id, name, description,
+      category, price,this.props.product.image_id, image);
     this.setState({ isUpdating: false });
   }
 
@@ -29,7 +37,7 @@ class ProductsRow extends React.Component {
   getName() {
     if (this.state.isUpdating) {
       return (
-        <td><input ref="categoryName" type="text" className="form-control"
+        <td><input ref="productName" type="text" className="form-control"
           defaultValue={this.props.product.name} /></td>
       );
     }

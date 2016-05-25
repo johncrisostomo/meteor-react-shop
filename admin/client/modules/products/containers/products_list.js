@@ -13,6 +13,7 @@ export const composer = ({context}, onData) => {
 
 export const depsMapper = (context, actions) => ({
   productsAdd: actions.products.productsAdd,
+  productsUpdate: actions.products.productsUpdate,
   productsDelete: actions.products.productsDelete,
   context: () => context
 });
