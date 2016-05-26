@@ -6,7 +6,13 @@ class CartTable extends React.Component {
       var cartTotal = 0;
       const cartItems = this.props.cartItems.map((item) => {
         cartTotal += item.productTotal;
-        return <CartRow key={item._id} item={item} removeFromCart={this.props.removeFromCart} />
+        return (
+          <CartRow key={item._id} item={item}
+            removeFromCart={this.props.removeFromCart}
+            addQuantity={this.props.addQuantity}
+            subtractQuantity={this.props.subtractQuantity}
+          />
+        );
       });
 
       return (

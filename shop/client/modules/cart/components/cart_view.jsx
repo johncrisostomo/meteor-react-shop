@@ -16,7 +16,9 @@ class CartView extends React.Component {
               <h3 className="modal-title" id="cartModalLabel">Your Cart</h3>
             </div>
             <div className="modal-body clearfix">
-              <CartTable cartItems={this.props.cartItems} removeFromCart={this.props.removeFromCart} />
+              <CartTable cartItems={this.props.cartItems}
+                removeFromCart={this.props.removeFromCart}
+              />
               <a href="#" className="btn btn-danger btn-lg">Checkout</a>
             </div>
           </div>
