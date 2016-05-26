@@ -2,6 +2,19 @@ import React from 'react';
 import CartTable from './cart_table.jsx';
 
 class CartView extends React.Component {
+  componentDidMount() {
+    $('#checkoutForm').hide();
+    $('#cartModal').on('hidden.bs.modal', function() {
+      $('#checkoutForm').hide();
+      $('#toggleCheckout').show();
+    });
+  }
+
+  toggleCheckout(e) {
+    e.preventDefault();
+    $(e.target).hide();
+    $('#checkoutForm').show();
+  }
 
   render() {
     return (
@@ -19,7 +32,13 @@ class CartView extends React.Component {
               <CartTable cartItems={this.props.cartItems}
                 removeFromCart={this.props.removeFromCart}
               />
-              <a href="#" className="btn btn-danger btn-lg">Checkout</a>
+              <a href="#" id="toggleCheckout"
+                className="btn btn-danger btn-lg" onClick={this.toggleCheckout.bind(this)}>
+                  Checkout
+              </a>
+            </div>
+            <div id="checkoutForm">
+              Checkout form!
             </div>
           </div>
         </div>
