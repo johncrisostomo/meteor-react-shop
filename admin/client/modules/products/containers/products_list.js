@@ -1,4 +1,4 @@
-import {useDeps, composeAll, composeWithTracker, compose} from 'mantra-core';
+import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
 
 import ProductsList from '../components/products_list.jsx';
 
@@ -15,7 +15,7 @@ export const depsMapper = (context, actions) => ({
   productsAdd: actions.products.productsAdd,
   productsUpdate: actions.products.productsUpdate,
   productsDelete: actions.products.productsDelete,
-  context: () => context
+  context: () => context,
 });
 
 export default composeAll(

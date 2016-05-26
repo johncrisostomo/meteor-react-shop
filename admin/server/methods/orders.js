@@ -5,9 +5,8 @@ import {check} from 'meteor/check';
 export default function() {
   Meteor.methods({
     'ordersUpdate'(orderId) {
+      check(orderId, String);
       const order = Orders.findOne({_id:orderId});
-      console.log('method call received from ' + orderId);
-      console.log(order);
 
       Orders.update({_id:orderId}, {$set: { shipped: true}});
 
@@ -17,8 +16,8 @@ export default function() {
         to: order.email,
         from: 'shipping@welcomeshop.com',
         subject: `Order ${orderId} successfully shipped!`,
-        text: 'Dear ' + order.name +', ' + '\nYour order has successfully shipped!'
+        text: 'Dear ' + order.name +', ' + '\nYour order has successfully shipped!',
       });
-    }
+    },
   });
 }

@@ -8,7 +8,6 @@ export default function() {
        image_url: 'http://www.garethjmsaunders.co.uk/blueprint/placeholders/gif/extras/icons/64x64.gif',
        image_id: 'safdsa32414321',
      });
-     console.log('Inserted Fashion category!');
 
      Categories.insert({
        name: 'Electronics',
@@ -16,6 +15,5 @@ export default function() {
        image_url: 'http://www.garethjmsaunders.co.uk/blueprint/placeholders/gif/extras/icons/64x64.gif',
        image_id: 'asdfsad878903274',
      });
-     console.log('Inserted Electronics category!');
    }
 }

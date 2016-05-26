@@ -10,7 +10,7 @@ class ProductsRow extends React.Component {
     e.preventDefault();
     const name = this.refs.productName.value;
     const description = this.refs.productDescription.value;
-    const category = this.refs.productCategory.value; 
+    const category = this.refs.productCategory.value;
     const price = Number(this.refs.productPrice.value);
     const image = $('#updateImage').get(0).files[0];
 
@@ -41,7 +41,7 @@ class ProductsRow extends React.Component {
           defaultValue={this.props.product.name} /></td>
       );
     }
-    
+
     return <td>{this.props.product.name}</td>;
   }
 
@@ -52,7 +52,7 @@ class ProductsRow extends React.Component {
         defaultValue={this.props.product.description}></textarea></td>
      );
     }
-    
+
     return <td>{this.props.product.description}</td>;
   }
 
@@ -71,7 +71,7 @@ class ProductsRow extends React.Component {
       );
     }
 
-    return <td>{this.props.product.category}</td>; 
+    return <td>{this.props.product.category}</td>;
   }
 
   getImage() {
@@ -122,7 +122,7 @@ class ProductsRow extends React.Component {
 
     return (
       <td>
-        <span onClick={this.handleDelete.bind(this)} 
+        <span onClick={this.handleDelete.bind(this)}
           className='glyphicon glyphicon-remove'></span>
       </td>
     );

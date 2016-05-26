@@ -1,5 +1,4 @@
-import {Products} from '/lib/collections';
-import {Images} from '/lib/collections';
+import {Products, Images} from '/lib/collections';
 import {Meteor} from 'meteor/meteor';
 import {check} from 'meteor/check';
 
@@ -22,7 +21,7 @@ export default function() {
           image_id: image_id,
           image_url: image_path,
         });
-    }
+    },
   });
 
   Meteor.methods({
@@ -34,6 +33,7 @@ export default function() {
       check(productCategory, String);
       check(productPrice, Number);
       check(oldImageId, String);
+      check(imageId, String);
       check(image_url, String);
 
       Images.remove(oldImageId);
@@ -47,10 +47,10 @@ export default function() {
               category: productCategory,
               price: productPrice,
               image_id: imageId,
-              image_url: image_url
-            }
+              image_url: image_url,
+            },
         });
-    }
+    },
   });
 
   Meteor.methods({
@@ -60,6 +60,6 @@ export default function() {
 
       Products.remove(productId);
       Images.remove(imageId);
-    }
+    },
   });
 }

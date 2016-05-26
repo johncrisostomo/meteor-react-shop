@@ -1,6 +1,4 @@
-import {Categories} from '/lib/collections';
-import {Products} from '/lib/collections';
-import {Images} from '/lib/collections';
+import {Categories, Products, Images} from '/lib/collections';
 import {Meteor} from 'meteor/meteor';
 import {check} from 'meteor/check';
 
@@ -12,7 +10,7 @@ export default function () {
       check(image_url, String);
 
       Categories.insert({name, image_url, image_id});
-    }
+    },
   });
 
   Meteor.methods({
@@ -34,23 +32,22 @@ export default function () {
             {
               name: name, 
               image_id: imageId,
-              image_url: image_url
-            }
+              image_url: image_url,
+            },
         });
 
       Products.update({category: oldCategoryName}, 
                       { $set: { category: name}}, 
                       {multi: true});
-    }
+    },
   });
 
   Meteor.methods({
     'categoriesDelete'(categoryId, imageId) {
       check(categoryId, String);
-      if (imageId) {
-        check(imageId, String);
+      check(imageId, String);
+        
         Images.remove(imageId);
-      }
 
       const oldCategoryName = Categories.findOne({_id: categoryId}).name;
 
@@ -59,6 +56,6 @@ export default function () {
                       {multi: true});
 
       Categories.remove(categoryId);
-    }
+    },
   });
 }

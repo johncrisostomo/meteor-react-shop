@@ -3,5 +3,5 @@ import navbar from './navbar';
 
 export default {
   login,
-  navbar
+  navbar,
 };

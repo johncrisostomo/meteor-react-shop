@@ -8,5 +8,5 @@ export {
   Orders,
   Products,
   Categories,
-  Images
+  Images,
 };

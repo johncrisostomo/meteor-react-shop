@@ -10,8 +10,6 @@ export default function() {
        category: 'Electronics',
        image_id: '1234hjkhdaf798',
      });
-     console.log('Inserted Macbook Air');
-
 
      Products.insert({
        name: 'iPhone',
@@ -21,8 +19,6 @@ export default function() {
        category: 'Electronics',
        image_id: 'poiasbfjhlwre123',
      });
-     console.log('Inserted iPhone!');
-
 
      Products.insert({
        name: 'Sadboys Large',
@@ -32,6 +28,5 @@ export default function() {
        category: 'Fashion',
        image_id: 'nbmb41ioui4321',
      });
-     console.log('Inserted T-shirt!');
    }
 }

@@ -1,4 +1,4 @@
-import {useDeps, composeAll, composeWithTracker, compose} from 'mantra-core';
+import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
 
 import CategoriesList from '../components/categories_list.jsx';
 
@@ -11,10 +11,10 @@ export const composer = ({context}, onData) => {
 };
 
 export const depsMapper = (context, actions) => ({
-  categoriesAdd: actions.categories.categoriesAdd, 
+  categoriesAdd: actions.categories.categoriesAdd,
   categoriesUpdate: actions.categories.categoriesUpdate,
   categoriesDelete: actions.categories.categoriesDelete,
-  context: () => context
+  context: () => context,
 });
 
 export default composeAll(

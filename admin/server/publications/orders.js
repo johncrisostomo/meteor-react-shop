@@ -7,6 +7,7 @@ export default function () {
     return Orders.find();
   });
   Meteor.publish('order', function(orderId) {
+    check(orderId, String);
     return Orders.find({_id: orderId});
   });
 }

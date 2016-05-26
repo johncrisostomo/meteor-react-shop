@@ -1,3 +1,5 @@
+import {FS} from 'meteor/cfs:base-package';
+
 export default {
   productsAdd({Meteor, Collections}, productName, productDescription, productCategory,
     productPrice, imageFile) {
@@ -13,7 +15,7 @@ export default {
       }
   },
 
-  productsUpdate({Meteor, Collections}, productId, productName, productDescription, 
+  productsUpdate({Meteor, Collections}, productId, productName, productDescription,
     productCategory, productPrice, oldImageId, imageFile) {
       if (imageFile) {
         const fsFile = new FS.File(imageFile);
@@ -29,5 +31,5 @@ export default {
 
   productsDelete({Meteor}, productId, imageId) {
     Meteor.call('productsDelete', productId, imageId);
-  }
+  },
 }

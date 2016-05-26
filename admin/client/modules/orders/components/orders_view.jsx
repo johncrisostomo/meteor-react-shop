@@ -3,7 +3,7 @@ import React from 'react';
 class OrdersView extends React.Component {
   render() {
     const order = this.props.order[0];
-    const products = order.products.map((product, index) => {
+    const products = order.products.map((product) => {
       return <ProductMedia key={product.name + product.price} product={product} />;
     });
     return (
