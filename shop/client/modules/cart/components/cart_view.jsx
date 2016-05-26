@@ -1,4 +1,5 @@
 import React from 'react';
+import CartTable from './cart_table.jsx';
 
 class CartView extends React.Component {
 
@@ -12,10 +13,11 @@ class CartView extends React.Component {
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
-              <h4 className="modal-title" id="cartModalLabel">Cart</h4>
+              <h3 className="modal-title" id="cartModalLabel">Your Cart</h3>
             </div>
             <div className="modal-body clearfix">
-
+              <CartTable cartItems={this.props.cartItems} removeFromCart={this.props.removeFromCart} />
+              <a href="#" className="btn btn-danger btn-lg">Checkout</a>
             </div>
           </div>
         </div>
