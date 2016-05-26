@@ -6,24 +6,24 @@ import Navbar from './navbar.jsx';
 class MainWrapper extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { show: 'All', searchText: ''};
+    this.state = { show: 'All' };
   }
 
   updateFilter(filter) {
     this.setState({show: filter});
   }
 
-  updateSearch(filter) {
-    this.setState({searchText: filter});
-  }
-
   render() {
     return (
-      <div className="container">
-        <Navbar
-          updateSearch={this.updateSearch.bind(this)}
-        />
-        <h1>Welcome Shop</h1>
+        <div>
+        <Navbar />
+        <div className="jumbotron">
+          <div className="container">
+            <h1>Welcome Shop!</h1>
+            <p>This is my sample shop</p>
+          </div>
+        </div>
+        <div className="container">
         <div className="row">
           <div className="col-md-3">
             <CategoryList
@@ -37,10 +37,12 @@ class MainWrapper extends React.Component {
                 products={this.props.products}
                 filter={this.state.show}
                 setSearchString={this.props.setSearchString}
+                addToCart={this.props.addToCart}
               />
             </div>
           </div>
         </div>
+      </div>
       </div>
     );
   }

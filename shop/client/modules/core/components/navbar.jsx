@@ -1,9 +1,10 @@
 import React from 'react';
+import Cart from '../../cart/containers/cart_view';
 
 class Navbar extends React.Component {
   render() {
     return (
-      <nav className="navbar navbar-default">
+      <nav className="navbar navbar-default" style={{"marginBottom":0}}>
         <div className="container-fluid">
           <div className="navbar-header">
             <button type="button" className="navbar-toggle collapsed"
@@ -19,11 +20,7 @@ class Navbar extends React.Component {
 
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav navbar-right">
-              <li>
-                <a href="#">
-                  Cart <span className="badge">0</span>
-                </a>
-              </li>
+              <Cart />
             </ul>
           </div>
         </div>

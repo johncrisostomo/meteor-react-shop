@@ -10,11 +10,11 @@ class ProductsList extends React.Component {
   render() {
     const products = this.props.products.map((product) => {
       if (this.props.filter === 'All') {
-        return <ProductsItem key={product._id} product={product} />
+        return <ProductsItem key={product._id} product={product} addToCart={this.props.addToCart} />
       }
 
       if (this.props.filter === product.category) {
-        return <ProductsItem key={product._id} product={product} />
+        return <ProductsItem key={product._id} product={product} addToCart={this.props.addToCart} />
       }
     });
 

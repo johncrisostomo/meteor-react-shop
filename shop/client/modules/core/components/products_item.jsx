@@ -1,6 +1,13 @@
 import React from 'react';
 
 class ProductsItem extends React.Component {
+  handleAddToCart(e) {
+    e.preventDefault();
+    this.props.addToCart(this.props.product._id,
+      this.props.product.name,
+      this.props.product.price,
+      this.props.product.image_url);
+  }
   render() {
     return (
       <div className="col-md-4">
@@ -16,7 +23,7 @@ class ProductsItem extends React.Component {
               </span>
             </p>
             <p>
-              <a href="#" className="btn btn-info">
+              <a href="#" className="btn btn-info" onClick={this.handleAddToCart.bind(this)}>
                 <span className="glyphicon glyphicon-shopping-cart"></span>
                 Add to cart
               </a>

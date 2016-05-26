@@ -13,6 +13,7 @@ export const composer = ({context}, onData) => {
 };
 
 export const depsMapper = (context, actions) => ({
+  addToCart: actions.addToCart.addToCart,
   setSearchString: actions.search.setSearchString,
   clearSearchString: actions.search.clearSearchString,
   context: () => context,
