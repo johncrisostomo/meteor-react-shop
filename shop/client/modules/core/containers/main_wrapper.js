@@ -1,10 +1,11 @@
-import {useDeps, composeAll, composeWithTracker, compose} from 'mantra-core';
+import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
 
 import MainWrapper from '../components/main_wrapper.jsx';
 
 export const composer = ({context}, onData) => {
-  const {Meteor, Collections} = context();
-  if (Meteor.subscribe('products').ready() && Meteor.subscribe('categories').ready()) {
+  const {Meteor, Collections, LocalState} = context();
+  if (Meteor.subscribe('products', LocalState.get('searchFilter')).ready()
+    && Meteor.subscribe('categories').ready()) {
     const categories = Collections.Categories.find().fetch();
     const products = Collections.Products.find().fetch();
     onData(null, {categories, products});
@@ -12,7 +13,9 @@ export const composer = ({context}, onData) => {
 };
 
 export const depsMapper = (context, actions) => ({
-  context: () => context
+  setSearchString: actions.search.setSearchString,
+  clearSearchString: actions.search.clearSearchString,
+  context: () => context,
 });
 
 export default composeAll(

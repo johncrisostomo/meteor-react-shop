@@ -11,7 +11,12 @@ class ProductsItem extends React.Component {
             <h3>{this.props.product.name}</h3>
             <p>{this.props.product.description}</p>
             <p>
-              <a href="#" className="btn btn-primary">
+              <span style={{"fontSize":15}} className="label label-danger pull-right">
+                Php {this.props.product.price.toFixed(2)}
+              </span>
+            </p>
+            <p>
+              <a href="#" className="btn btn-info">
                 <span className="glyphicon glyphicon-shopping-cart"></span>
                 Add to cart
               </a>

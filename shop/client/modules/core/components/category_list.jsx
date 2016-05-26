@@ -11,6 +11,7 @@ class CategoryList extends React.Component {
 
     return (
       <div>
+        <h2>Categories</h2>
         <div className="list-group">
           {categories}
         </div>

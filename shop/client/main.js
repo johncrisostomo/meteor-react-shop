@@ -6,6 +6,7 @@ import coreModule from './modules/core';
 
 // init context
 const context = initContext();
+context.LocalState.set('searchFilter', '');
 
 // create app
 const app = createApp(context);
