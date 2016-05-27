@@ -1,5 +1,5 @@
 # Test Shop Project - Crisostomo, John Dominic S.
-***
+
 ## BASIC REQUIREMENTS:
 
 ### FRONTEND / SHOP :
