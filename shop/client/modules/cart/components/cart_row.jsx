@@ -6,22 +6,6 @@ class CartRow extends React.Component {
     this.props.removeFromCart(this.props.item._id);
   }
 
-  handlePlus(e) {
-    e.preventDefault();
-    this.refs.quantity.value = Number(this.refs.quantity.value) + 1;
-    this.props.addQuantity(this.props.item._id, Number(this.refs.quantity.value));
-  }
-
-  handleMinus(e) {
-    e.preventDefault();
-    if (this.refs.quantity.value == 1) {
-      return;
-    }
-
-    this.refs.quantity.value = Number(this.refs.quantity.value) - 1;
-    this.props.subtractQuantity(this.props.item._id, Number(this.refs.quantity.value));
-  }
-
   render() {
     return (
       <tr>

@@ -45,7 +45,7 @@ class OrdersView extends React.Component {
 const ProductMedia = ({product}) => (
   <div className="row">
     <div className="col-md-3">
-      <img src="http://i.stack.imgur.com/ruR4z.png" />
+      <img src={product.image_url} />
     </div>
     <div className="col-md-3">
       <h4>{product.name}</h4>

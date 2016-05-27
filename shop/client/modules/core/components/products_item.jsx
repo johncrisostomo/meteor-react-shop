@@ -6,7 +6,8 @@ class ProductsItem extends React.Component {
     this.props.addToCart(this.props.product._id,
       this.props.product.name,
       Number(this.refs.quantity.value),
-      this.props.product.price,
+      Number(this.props.product.price),
+      this.props.product.category,
       this.props.product.image_url);
   }
 

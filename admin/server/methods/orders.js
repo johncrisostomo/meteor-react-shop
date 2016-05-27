@@ -14,7 +14,7 @@ export default function() {
 
       Email.send({
         to: order.email,
-        from: 'shipping@welcomeshop.com',
+        from: 'jd@snapzio.com',
         subject: `Order ${orderId} successfully shipped!`,
         text: 'Dear ' + order.name +', ' + '\nYour order has successfully shipped!',
       });

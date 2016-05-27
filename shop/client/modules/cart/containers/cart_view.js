@@ -11,6 +11,7 @@ export const composer = ({context}, onData) => {
 };
 
 export const depsMapper = (context, actions) => ({
+  checkout: actions.cart.checkout,
   removeFromCart: actions.cart.removeFromCart,
   context: () => context,
 });

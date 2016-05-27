@@ -16,6 +16,16 @@ class CartView extends React.Component {
     $('#checkoutForm').show();
   }
 
+  handleCheckOut(e) {
+    e.preventDefault();
+    const {fullName, email, address} = this.refs;
+    const {itemCount} = this.props;
+    if (itemCount) {
+      this.props.checkout(fullName.value, email.value, address.value);
+      $('#cartModal').modal('hide');
+    }
+  }
+
   render() {
     return (
       <li>
@@ -33,12 +43,36 @@ class CartView extends React.Component {
                 removeFromCart={this.props.removeFromCart}
               />
               <a href="#" id="toggleCheckout"
-                className="btn btn-danger btn-lg" onClick={this.toggleCheckout.bind(this)}>
+                className="btn btn-danger btn-lg" readOnly={this.checkIfEmpty}
+                  onClick={this.toggleCheckout.bind(this)}>
                   Checkout
               </a>
             </div>
-            <div id="checkoutForm">
-              Checkout form!
+            <div className="modal-footer clearfix" id="checkoutForm">
+              <form onSubmit={this.handleCheckOut.bind(this)}>
+                <div className="form-group">
+                    <label className="pull-left">Full Name</label>
+                  <input ref="fullName" type="text" required className="form-control"
+                    placeholder="Full Name" />
+                </div>
+                <div className="form-group">
+                  <label className="pull-left">Email Address</label>
+                  <input ref="email" type="email" required className="form-control"
+                    placeholder="Email" />
+                </div>
+                <div className="form-group">
+                  <label className="pull-left">Address</label>
+                  <textarea ref="address" className="form-control" required></textarea>
+                </div>
+                <div>
+                  <small>
+                    <i>Fill out the following to complete purchase</i>
+                  </small>
+                </div>
+                <button type="submit" className="btn btn-success">
+                  Complete Order
+                </button>
+              </form>
             </div>
           </div>
         </div>
