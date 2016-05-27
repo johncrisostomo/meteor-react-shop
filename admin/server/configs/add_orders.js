@@ -24,6 +24,7 @@ export default function() {
       address: 'Snapzio Office',
       email: 'erick@snapzio.com',
       shipped: false,
+      createdAt: new Date(),
     });
     Orders.insert({
       products: [
@@ -40,6 +41,7 @@ export default function() {
       address: 'Snapzio Office',
       email: 'jd@snapzio.com',
       shipped: false,
+      createdAt: new Date(),
     });
   }
 }

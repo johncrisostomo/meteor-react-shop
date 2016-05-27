@@ -27,3 +27,5 @@ cfs:standard-packages
 cfs:gridfs
 msavin:mongol
 themeteorchef:bert
+kadira:dochead
+percolate:synced-cron
