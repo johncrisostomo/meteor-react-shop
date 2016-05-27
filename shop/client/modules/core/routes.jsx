@@ -11,8 +11,8 @@ export default function (injectDeps, {FlowRouter}) {
     name: 'home',
     action() {
       mount(MainLayoutCtx, {
-        content: () => (<Home />)
+        content: () => (<Home />),
       });
-    }
+    },
   });
 }
