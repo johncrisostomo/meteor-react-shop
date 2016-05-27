@@ -1,4 +1,5 @@
 import React from 'react';
+import {Bert} from 'meteor/themeteorchef:bert';
 
 class ProductsItem extends React.Component {
   handleAddToCart(e) {
@@ -9,6 +10,8 @@ class ProductsItem extends React.Component {
       Number(this.props.product.price),
       this.props.product.category,
       this.props.product.image_url);
+    Bert.alert(`${this.props.product.name} added to cart!`,
+      'success', 'growl-bottom-right');
   }
 
   handleQtyChange(e) {

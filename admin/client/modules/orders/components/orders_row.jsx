@@ -1,4 +1,5 @@
 import React from 'react';
+import {Bert} from 'meteor/themeteorchef:bert';
 
 class OrdersRow extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class OrdersRow extends React.Component {
     this.props.update(this.orderId);
     this.status = 'Shipped';
     this.setState({isUpdating: false});
+    Bert.alert('Order updated!', 'success', 'growl-top-right');  
   }
 
   handleUpdate(e) {

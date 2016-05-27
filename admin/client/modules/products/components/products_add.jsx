@@ -1,4 +1,5 @@
 import React from 'react';
+import {Bert} from 'meteor/themeteorchef:bert';
 
 class ProductsAdd extends React.Component {
   submitHandler(e) {
@@ -12,6 +13,7 @@ class ProductsAdd extends React.Component {
     this.props.productsAdd(productName, productDescription, productCategory,
       productPrice, imageFile);
     $('#addModal').modal('hide');
+    Bert.alert('Product added', 'success', 'growl-top-right');
   }
   render() {
     const categoryNames = this.props.categories.map((category) => {

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Bert} from 'meteor/themeteorchef:bert';
 
 class CategoriesRow extends React.Component {
   constructor(props) {
@@ -11,9 +12,10 @@ class CategoriesRow extends React.Component {
     const categoryId = this.props.category._id;
     const imageId = this.props.category.image_id;
     const name = this.refs.categoryName.value;
-    const file = $('#updateImage').get(0).files[0];    
+    const file = $('#updateImage').get(0).files[0];
     this.props.update(categoryId, imageId, name, file);
     this.setState({ isUpdating: false });
+    Bert.alert('Category updated', 'success', 'growl-top-right');
   }
 
   handleUpdate(e) {
@@ -24,6 +26,7 @@ class CategoriesRow extends React.Component {
   handleDelete(e) {
     e.preventDefault();
     this.props.catDelete(this.props.category._id, this.props.category.image_id);
+    Bert.alert('Category deleted', 'danger', 'growl-top-right');
   }
 
   handleCancel(e) {
@@ -34,9 +37,9 @@ class CategoriesRow extends React.Component {
   getName() {
     if (this.state.isUpdating) {
       return (
-         <td><input ref='categoryName' type='text' defaultValue={this.props.category.name} 
+         <td><input ref='categoryName' type='text' defaultValue={this.props.category.name}
           className='form-control' /></td>
-      ); 
+      );
     }
     return <td>{this.props.category.name}</td>;
   }
@@ -76,7 +79,7 @@ class CategoriesRow extends React.Component {
 
     return (
       <td>
-        <span onClick={this.handleDelete.bind(this)} 
+        <span onClick={this.handleDelete.bind(this)}
           className='glyphicon glyphicon-remove'></span>
       </td>
     );

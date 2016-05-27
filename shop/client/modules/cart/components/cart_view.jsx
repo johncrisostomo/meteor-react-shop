@@ -1,9 +1,9 @@
 import React from 'react';
 import CartTable from './cart_table.jsx';
+import {Bert} from 'meteor/themeteorchef:bert';
 
 class CartView extends React.Component {
   componentDidMount() {
-    $('#checkoutForm').hide();
     $('#cartModal').on('hidden.bs.modal', function() {
       $('#checkoutForm').hide();
       $('#toggleCheckout').show();
@@ -23,10 +23,34 @@ class CartView extends React.Component {
     if (itemCount) {
       this.props.checkout(fullName.value, email.value, address.value);
       $('#cartModal').modal('hide');
+      Bert.alert('Checkout complete! Please check your email', 'success');
     }
+
+    this.refs.fullName.value = '';
+    this.refs.email.value = '';
+    this.refs.address.value = '';
   }
 
   render() {
+    if (!this.props.itemCount) {
+      return (
+        <li>
+          <a href="#" data-toggle="modal" data-target="#cartModal">
+            Cart <span className="badge">{this.props.itemCount}</span>
+          </a>
+
+          <div id="cartModal" className="modal fade" tabindex="-1" role="dialog">
+            <div className="modal-dialog" role="document">
+              <div className="modal-content">
+                <div className="modal-body clearfix">
+                  <h3>Your cart is empty! :(</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      );
+    }
     return (
       <li>
       <a href="#" data-toggle="modal" data-target="#cartModal">
@@ -48,7 +72,7 @@ class CartView extends React.Component {
                   Checkout
               </a>
             </div>
-            <div className="modal-footer clearfix" id="checkoutForm">
+            <div style={{"display":"none"}} className="modal-footer clearfix" id="checkoutForm">
               <form onSubmit={this.handleCheckOut.bind(this)}>
                 <div className="form-group">
                     <label className="pull-left">Full Name</label>

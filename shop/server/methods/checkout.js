@@ -18,6 +18,7 @@ export default function () {
         address,
         email,
         shipped: false,
+        createdAt: new Date(),
       });
 
       Email.send({

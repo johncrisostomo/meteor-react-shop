@@ -55,7 +55,7 @@ const ProductMedia = ({product}) => (
       <h4><i>x {product.qty}</i></h4>
     </div>
     <div className="col-md-3">
-      <h4>{product.price * product.qty}</h4>
+      <h4>Php {(product.price * product.qty).toFixed(2)}</h4>
     </div>
   </div>
 );

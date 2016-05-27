@@ -1,4 +1,5 @@
 import React from 'react';
+import {Bert} from 'meteor/themeteorchef:bert';
 
 class CategoriesAdd extends React.Component {
   handleSubmit(e) {
@@ -10,6 +11,7 @@ class CategoriesAdd extends React.Component {
     $('#addCategoryForm').hide();
     $('#formToggler').show();
     this.refs.categoryName.value = '';
+    Bert.alert('Category added', 'success', 'growl-top-right');
   }
 
   handleCancel(e) {

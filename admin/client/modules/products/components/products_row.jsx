@@ -1,4 +1,5 @@
 import React from 'react';
+import {Bert} from 'meteor/themeteorchef:bert';
 
 class ProductsRow extends React.Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class ProductsRow extends React.Component {
     this.props.productsUpdate(this.props.product._id, name, description,
       category, price,this.props.product.image_id, image);
     this.setState({ isUpdating: false });
+    Bert.alert('Product updated', 'success', 'growl-top-right');
   }
 
   handleUpdate(e) {
@@ -27,6 +29,7 @@ class ProductsRow extends React.Component {
   handleDelete(e) {
     e.preventDefault();
     this.props.productsDelete(this.props.product._id, this.props.product.image_id);
+    Bert.alert('Product deleted', 'danger', 'growl-top-right');
   }
 
   handleCancel(e) {
