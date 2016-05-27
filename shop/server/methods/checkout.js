@@ -28,7 +28,9 @@ export default function () {
         text: 'Dear ' + name +', ' +
           `\nOrder ID ${orderId} is confirmed` +
           '\nThank you for placing an order.\n' +
-          'Please wait for the shipping email to be sent shortly',
+          'Please wait for the shipping email to be sent shortly.\n\n' +
+          'You can see you receipt by visiting the link below : \n\n' +
+          Meteor.absoluteUrl() + 'orders/' + orderId,
       });
     },
   });
