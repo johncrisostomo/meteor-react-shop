@@ -2,6 +2,8 @@ import {Meteor} from 'meteor/meteor';
 
 export default function() {
   Meteor.startup(function() {
-    process.env.MAIL_URL='smtp://jd%40snapzio.com:2sagara7@mail.snapzio.com:587';
+    const {email, password, server, port} = Meteor.settings.email; 
+
+    process.env.MAIL_URL=`smtp://${email}:${password}@${server}:${port}`;
   });
 }
