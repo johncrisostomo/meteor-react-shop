@@ -1,8 +1,0 @@
-{
-  email: {
-    address: 'jd%40snapzio.com',
-    password: '2sagara7',
-    smtp: 'mail.snapzio.com',
-    port: 587
-  }
-}
