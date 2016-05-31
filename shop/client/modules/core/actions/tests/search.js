@@ -4,5 +4,11 @@ import {spy, stub} from 'sinon';
 import actions from '../search';
 
 describe('core.actions.search', () => {
-  it('should do something');
+  it('should do update search filter', () => {
+    const LocalState = { set: spy()};
+
+    actions.setSearchString({LocalState}, 'macbook');
+
+    expect(LocalState.set.args[0]).to.equal('macbook');
+  });
 });
