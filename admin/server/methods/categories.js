@@ -9,7 +9,8 @@ export default function () {
       check(image_id, String);
       check(image_url, String);
 
-      Categories.insert({name, image_url, image_id});
+      return Categories.insert({name, image_url, image_id});
+      
     },
   });
 
