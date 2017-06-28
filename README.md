@@ -1,4 +1,6 @@
-# Test Shop Project - Crisostomo, John Dominic S.
+# Meteor E-commerce app
+
+This is a basic e-commerce web app created with Meteor. I created this from scratch as a hiring procedure from my previous company.
 
 ## BASIC REQUIREMENTS:
 
