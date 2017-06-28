@@ -1,4 +1,4 @@
-# Meteor E-commerce app
+# E-commerce app made with React and Meteorjs (Mantra Architecture)
 
 This is a basic e-commerce web app created with Meteor, React and the Mantra architecture. I created this from scratch as a hiring procedure from my previous company. I have very little experience with Meteor and JavaScript in particular when I created this and it was under a time limit, so sorry for the messy code :D
 
